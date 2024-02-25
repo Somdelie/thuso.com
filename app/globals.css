@@ -1,0 +1,327 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: white;
+  --bgDark: #111827;
+  --textColor: #374151;
+  --paragraph: #9ca3af;
+  --primary: #0ad1bb;
+  --roseRed: #cd4163;
+  --green: #13ce66;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+html {
+  scroll-snap-type: mandatory;
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-snap-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cd4163;
+  border-radius: 40px;
+}
+
+body {
+  overflow-x: hidden;
+  color: var(--textColor);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* @apply bg-gradient-to-b from-gray-300 to-white dark:from-gray-800 dark:to-gray-800; */
+}
+
+/* @media (prefers-color-scheme: light) {
+  body {
+    @apply bg-gradient-to-b from-gray-300 to-white dark:from-gray-800 dark:to-gray-800;
+  }
+} */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-black;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  transition: all 0.3s ease;
+}
+
+.mainContent {
+  color: var(--textColor);
+}
+
+.mainWrapper {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  background-color: var(--roseRed);
+  outline: none;
+  border: none;
+  color: white;
+  padding: 5px 30px;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* <!---------Home------------------ */
+.hero {
+  /* background-image: url("/bg4.jpg"); */
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  @apply bg-hero-pattern dark:bg-dark-bg;
+}
+
+.anim {
+  animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+    transform: translateX(250px);
+  }
+
+  38% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  55% {
+    animation-timing-function: ease-in;
+    transform: translateX(68px);
+  }
+
+  72% {
+    animation-timing-function: ease-out;
+    transform: translateX(0);
+  }
+
+  81% {
+    animation-timing-function: ease-in;
+    transform: translateX(32px);
+  }
+
+  90% {
+    animation-timing-function: ease-out;
+    transform: translateX(0);
+  }
+
+  95% {
+    animation-timing-function: ease-in;
+    transform: translateX(8px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    transform: translateX(0);
+  }
+}
+
+.drop-shadow {
+  filter: drop-shadow(-6px 5px 10px #858585);
+}
+
+.featured {
+  /* background-image: url("/Cloudy.svg"); */
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  @apply bg-light-bg1 dark:bg-dark-bg2;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  border: 4.5px solid #0000;
+  border-radius: 50%;
+  border-color: #111827 #0000;
+  animation: spinner-e04l1k 1s infinite linear;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2.2px;
+  border: inherit;
+  border-radius: 50%;
+}
+
+.spinner::before {
+  border-color: #cd4163 #111827;
+  animation: inherit;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+
+.spinner::after {
+  margin: 8.9px;
+}
+
+@keyframes spinner-e04l1k {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  @apply bg-white dark:bg-gray-700 dark:text-gray-200;
+}
+
+.css-eqeipb-MuiPaper-root-MuiPopover-paper-MuiMenu-paper::before {
+  @apply bg-white dark:bg-gray-700;
+}
+
+.css-1q5f5xg-MuiDivider-root::before {
+  border-color: #858585;
+}
+.css-1q5f5xg-MuiDivider-root::after {
+  border-color: #858585;
+}
+
+.verified {
+  background-image: url("/verified-hero-desktop.webp");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.megaMenu {
+  position: relative;
+  transition: all 2s ease;
+}
+
+.links {
+  display: none;
+  padding: 20px;
+  position: absolute;
+  transition: all 2s ease;
+  top: 20px;
+  left: -35px;
+  @apply bg-white dark:bg-gray-700 rounded;
+}
+
+.megaMenu:hover .links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 2s ease;
+}
+
+.search {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+/* admin-panel */
+
+.nav {
+  @apply dark:bg-gray-700 bg-white transition flex items-center;
+}
+
+.css-1iuq8e8-MuiDrawer-docked .MuiDrawer-paper {
+  @apply dark:bg-gray-700 bg-white text-gray-700 transition dark:text-gray-300;
+}
+
+.main {
+  @apply min-h-screen dark:text-gray-400 transition;
+}
+
+.itemIcon {
+  @apply dark:text-gray-300 transition text-lg font-semibold;
+}
+
+.MuiDrawer-paper {
+  @apply dark:bg-gray-700 bg-white text-gray-700 dark:text-gray-300 transition;
+}
+
+.linkTitle {
+  @apply font-semibold;
+}
+
+.smallCard {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.gm-style .gm-style-iw-c {
+  @apply dark:bg-gray-900 p-2 overflow-hidden dark:text-gray-300;
+}
+
+.gm-style .gm-style-iw-d {
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.gm-style-iw {
+  overflow: hidden !important;
+}
+
+.css-wop1k0-MuiDataGrid-footerContainer {
+  @apply border-none;
+  min-height: 40px !important;
+  max-height: 40px !important;
+}
+
+.css-1iyq7zh-MuiDataGrid-columnHeaders {
+  @apply bg-white text-gray-700 dark:bg-gray-700 dark:text-gray-200 font-semibold;
+}
+
+.data-grid {
+  @apply dark:border-gray-700 w-full border-gray-400 border-2;
+}
+
+.css-az8st9-MuiDataGrid-root .MuiDataGrid-row {
+  @apply dark:hover:bg-gray-600 border-b-2 border-gray-400 hover:bg-gray-300 dark:text-gray-400 text-gray-700 dark:border-gray-700;
+}
+
+.css-az8st9-MuiDataGrid-root .MuiDataGrid-withBorderColor {
+  border: none !important;
+}
